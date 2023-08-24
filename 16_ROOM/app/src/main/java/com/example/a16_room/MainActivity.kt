@@ -1,6 +1,5 @@
 package com.example.a16_room
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,39 +8,41 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a16_room.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private val adapter = UserAdapter()
+    private val adapter = StudentAdapter()
     private var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        binding.recyclerUsers.layoutManager = LinearLayoutManager(applicationContext)
-        binding.recyclerUsers.adapter = adapter
+        binding.recyclerStudents.layoutManager = LinearLayoutManager(applicationContext)
+        binding.recyclerStudents.adapter = adapter
 
-        val listener = object : OnUserListener {
+        val listener = object : OnStudentListener {
             override fun OnClick(id: Int) {
                 Toast.makeText(applicationContext, id.toString(), Toast.LENGTH_SHORT).show()
                 viewModel.get(id)
             }
         }
+
         adapter.attachListener(listener)
 
         binding.buttonInsert.setOnClickListener {
-            val username = binding.editUsername.text.toString()
-            val password = binding.editPassword.text.toString()
-            viewModel.insert(username, password)
+            val name = binding.editName.text.toString()
+            val registration = binding.editRegistration.text.toString()
+
+            viewModel.insert(name, registration)
+
         }
         binding.buttonEdit.setOnClickListener {
-            val username = binding.editUsername.text.toString()
-            val password = binding.editUsername.text.toString()
-            viewModel.update(id, username, password)
+            val name = binding.editName.text.toString()
+            val registration = binding.editRegistration.text.toString()
+            viewModel.update(id, name, registration)
         }
         binding.buttonDelete.setOnClickListener {
             viewModel.delete(id)
@@ -52,14 +53,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.users.observe(this) {
-            adapter.updateUsers(it)
+        viewModel.students.observe(this) {
+            adapter.updateStudents(it)
         }
-        viewModel.user.observe(this) {
+        viewModel.student.observe(this) {
             id = it.id
             binding.textId.setText(id.toString())
-            binding.editUsername.setText(it.username)
-            binding.editPassword.setText(it.password)
+            binding.editName.setText(it.name)
+            binding.editRegistration.setText(it.registration)
         }
         viewModel.newChange.observe(this) {
             viewModel.getAll()

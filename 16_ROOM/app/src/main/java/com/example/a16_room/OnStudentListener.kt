@@ -1,6 +1,5 @@
 package com.example.a16_room
 
-interface OnUserListener {
+interface OnStudentListener {
     fun OnClick(id: Int)
 }
-

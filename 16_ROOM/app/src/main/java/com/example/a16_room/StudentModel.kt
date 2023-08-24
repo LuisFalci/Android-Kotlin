@@ -4,16 +4,15 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "User")
-class UserModel {
-
+@Entity(tableName = "Student")
+class StudentModel {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0
 
-    @ColumnInfo(name = "username")
-    var username: String = ""
+    @ColumnInfo(name = "name")
+    var name: String = ""
 
-    @ColumnInfo(name = "password")
-    var password: String = ""
+    @ColumnInfo(name = "registration")
+    var registration: String = ""
 }
