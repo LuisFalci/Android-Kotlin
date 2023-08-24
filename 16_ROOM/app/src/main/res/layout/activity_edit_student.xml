@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".ui.view.MainActivity">
+    tools:context=".ui.view.EditStudentActivity">
 
     <TextView
         android:id="@+id/text_id"
@@ -30,26 +30,9 @@
         android:hint="Password" />
 
     <Button
-        android:id="@+id/button_insert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Insert" />
-
-    <Button
         android:id="@+id/button_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Edit" />
-
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_students"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

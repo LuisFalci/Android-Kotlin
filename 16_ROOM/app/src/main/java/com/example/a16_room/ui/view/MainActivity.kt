@@ -1,4 +1,4 @@
-    package com.example.a16_room
+    package com.example.a16_room.ui.view
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
