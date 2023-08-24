@@ -32,42 +32,28 @@ class MainActivity : AppCompatActivity() {
             override fun OnClick(id: Int) {
                 Intent.putExtra("student_id", id)
                 startActivity(Intent)
-//                Toast.makeText(applicationContext, id.toString(), Toast.LENGTH_SHORT).show()
-//                viewModel.get(id)
             }
+        }
+        binding.buttonNewStudent.setOnClickListener {
+            val Intent = Intent(this, CreateStudentActivity::class.java)
+            startActivity(Intent)
         }
 
         adapter.attachListener(listener)
 
-        binding.buttonInsert.setOnClickListener {
-            val name = binding.editName.text.toString()
-            val registration = binding.editRegistration.text.toString()
-
-            viewModel.insert(name, registration)
-
-        }
-        binding.buttonEdit.setOnClickListener {
-            val name = binding.editName.text.toString()
-            val registration = binding.editRegistration.text.toString()
-            viewModel.update(id, name, registration)
-        }
-        binding.buttonDelete.setOnClickListener {
-            viewModel.delete(id)
-        }
-
+        viewModel.getAll()
         observe()
+    }
+
+    //Garante a atualização da lista quando volta da edição/criação
+    override fun onResume() {
+        super.onResume()
         viewModel.getAll()
     }
 
     private fun observe() {
         viewModel.students.observe(this) {
             adapter.updateStudents(it)
-        }
-        viewModel.student.observe(this) {
-            id = it.id
-            binding.textId.setText(id.toString())
-            binding.editName.setText(it.name)
-            binding.editRegistration.setText(it.registration)
         }
         viewModel.newChange.observe(this) {
             viewModel.getAll()

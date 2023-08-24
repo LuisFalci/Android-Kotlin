@@ -5,20 +5,20 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.a16_room.R
+import com.example.a16_room.databinding.ActivityEditStudentBinding
 import com.example.a16_room.databinding.ActivityMainBinding
 import com.example.a16_room.ui.viewmodels.MainViewModel
 
 class EditStudentActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private var studentId: Int = -1
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityEditStudentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityEditStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Toast.makeText(applicationContext, "edit", Toast.LENGTH_SHORT).show()
-        // Initialize your viewModel here
+
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         if (intent.hasExtra("student_id")) {
@@ -38,7 +38,6 @@ class EditStudentActivity : AppCompatActivity() {
             val registration = binding.editRegistration.text.toString()
             viewModel.update(studentId, name, registration)
 
-            // Optionally, you can also finish the activity after updating
             finish()
         }
 

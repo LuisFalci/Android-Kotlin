@@ -8,44 +8,6 @@
     android:padding="8dp"
     tools:context=".ui.view.MainActivity">
 
-    <TextView
-        android:id="@+id/text_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="ID:" />
-
-    <EditText
-        android:id="@+id/edit_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Username" />
-
-    <EditText
-        android:id="@+id/edit_registration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Password" />
-
-    <Button
-        android:id="@+id/button_insert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Insert" />
-
-    <Button
-        android:id="@+id/button_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete" />
     <Button
         android:id="@+id/button_new_student"
         android:layout_width="match_parent"
