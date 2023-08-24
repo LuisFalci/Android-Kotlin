@@ -1,10 +1,11 @@
-package com.example.a16_room
+package com.example.a16_room.data.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.a16_room.data.models.StudentModel
 
 @Dao
 interface StudentDAO {

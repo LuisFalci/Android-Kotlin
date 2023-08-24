@@ -1,9 +1,11 @@
-package com.example.a16_room
+package com.example.a16_room.ui.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.a16_room.data.models.StudentModel
+import com.example.a16_room.data.repository.StudentRepository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 

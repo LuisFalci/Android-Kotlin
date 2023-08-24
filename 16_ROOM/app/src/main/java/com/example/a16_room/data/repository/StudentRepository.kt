@@ -1,6 +1,8 @@
-package com.example.a16_room
+package com.example.a16_room.data.repository
 
 import android.content.Context
+import com.example.a16_room.data.database.StudentDatabase
+import com.example.a16_room.data.models.StudentModel
 
 class StudentRepository(context: Context) {
 

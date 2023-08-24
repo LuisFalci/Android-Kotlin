@@ -1,6 +1,8 @@
-package com.example.a16_room
+package com.example.a16_room.ui.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a16_room.ui.listeners.OnStudentListener
+import com.example.a16_room.data.models.StudentModel
 import com.example.a16_room.databinding.RowStudentBinding
 
 class StudentViewHolder(

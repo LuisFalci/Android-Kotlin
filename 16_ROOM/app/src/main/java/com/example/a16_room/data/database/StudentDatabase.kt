@@ -1,4 +1,4 @@
-package com.example.a16_room
+package com.example.a16_room.data.database
 
 import android.content.Context
 import androidx.room.Database
@@ -6,6 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.a16_room.data.dao.StudentDAO
+import com.example.a16_room.data.models.StudentModel
 
 @Database(entities = [StudentModel::class], version = 1)
 abstract class StudentDatabase : RoomDatabase() {
@@ -18,7 +20,7 @@ abstract class StudentDatabase : RoomDatabase() {
         private lateinit var INSTANCE: StudentDatabase
 
         fun getDatabase(context: Context): StudentDatabase {
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 synchronized(StudentDatabase::class.java) {
                     INSTANCE =
                         Room.databaseBuilder(context, StudentDatabase::class.java, "bluePresenceDB")
