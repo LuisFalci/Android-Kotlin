@@ -10,6 +10,7 @@ import com.example.a16_room.ui.adapters.StudentAdapter
 import com.example.a16_room.ui.listeners.OnStudentListener
 import com.example.a16_room.ui.viewmodels.MainViewModel
 import com.example.a16_room.databinding.ActivityMainBinding
+import com.example.a16_room.ui.listeners.ClickSource
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,11 +30,21 @@ class MainActivity : AppCompatActivity() {
 
         val Intent = Intent(this, EditStudentActivity::class.java)
         val listener = object : OnStudentListener {
-            override fun OnClick(id: Int) {
-                Intent.putExtra("student_id", id)
-                startActivity(Intent)
+            override fun OnClick(id: Int, source: ClickSource) {
+                when (source) {
+                    ClickSource.TEXT -> {
+                        Intent.putExtra("student_id", id)
+                        startActivity(Intent)
+                    }
+
+                    ClickSource.BUTTON_REMOVE -> {
+                        viewModel.delete(id)
+                    }
+                }
             }
         }
+
+
         binding.buttonNewStudent.setOnClickListener {
             val Intent = Intent(this, CreateStudentActivity::class.java)
             startActivity(Intent)
