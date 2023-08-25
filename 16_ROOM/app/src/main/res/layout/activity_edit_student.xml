@@ -8,31 +8,25 @@
     android:padding="8dp"
     tools:context=".ui.view.EditStudentActivity">
 
-    <TextView
-        android:id="@+id/text_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="ID:" />
-
     <EditText
         android:id="@+id/edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Username" />
+        android:hint="Nome" />
 
     <EditText
         android:id="@+id/edit_registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Password" />
+        android:hint="Matrícula"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/button_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit" />
+        android:text="Salvar" />
 
 </LinearLayout>
