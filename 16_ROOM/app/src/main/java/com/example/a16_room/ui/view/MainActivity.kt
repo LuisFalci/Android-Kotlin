@@ -44,16 +44,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         binding.buttonNewStudent.setOnClickListener {
-            val Intent = Intent(this, CreateStudentActivity::class.java)
-            startActivity(Intent)
+            startActivity(Intent(this, CreateStudentActivity::class.java))
         }
 
         adapter.attachListener(listener)
 
         viewModel.getAll()
         observe()
+
+        binding.goToSubject.setOnClickListener {
+            startActivity(Intent(this, SubjectViewActivity::class.java))
+        }
+
     }
 
     //Garante a atualização da lista quando volta da edição/criação
