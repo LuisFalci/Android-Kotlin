@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Turmas"/>
+        <item
+            android:id="@+id/nav_roll_call"
+            android:icon="@drawable/ic_bluetooth"
+            android:title="Chamada"/>
+        <item
+            android:id="@+id/nav_graph"
+            android:icon="@drawable/ic_graph"
+            android:title="Gráfico"/>
+        <item
+            android:id="@+id/nav_spreadsheet"
+            android:icon="@drawable/ic_spreadsheet"
+            android:title="Gerar Planilha"/>
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report"
+            android:title="Reportar Problema"/>
+    </group>
+</menu>
