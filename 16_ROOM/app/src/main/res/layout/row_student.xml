@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="10dp"
+
             android:src="@drawable/ic_student" />
 
         <TextView
@@ -29,8 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7"
+            android:padding="10dp"
             android:text="Student"
-            android:padding="8dp"
             android:textColor="@color/lavender"
             android:textSize="20sp" />
 
@@ -39,8 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="10dp"
             android:src="@drawable/ic_trash"
+            android:padding="8dp"
             android:textColor="@color/lavender" />
 
     </LinearLayout>
