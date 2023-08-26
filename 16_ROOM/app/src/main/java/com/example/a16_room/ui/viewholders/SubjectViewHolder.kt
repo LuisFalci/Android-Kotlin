@@ -11,15 +11,15 @@ import com.example.a16_room.ui.listeners.ClickSourceSubject
 import com.example.a16_room.ui.listeners.OnStudentListener
 import com.example.a16_room.ui.listeners.OnSubjectListener
 
-class SubjectViewHolder (
+class SubjectViewHolder(
     private val bind: RowSubjectBinding,
     private val listener: OnSubjectListener
 ) : RecyclerView.ViewHolder(bind.root) {
     fun bind(subject: SubjectModel) {
         bind.textSubject.text = subject.subjectName
 
-        bind.textSubject.setOnClickListener {
-            listener.OnClick(subject.subjectId, ClickSourceSubject.OPTION_EDIT)
+        bind.subjectCard.setOnClickListener {
+            listener.OnClick(subject.subjectId, ClickSourceSubject.OPTION_VIEW_STUDENTS)
         }
         bind.buttonRemove.setOnClickListener {
             showPopupMenu(it, subject)
@@ -36,10 +36,12 @@ class SubjectViewHolder (
                     listener.OnClick(subject.subjectId, ClickSourceSubject.OPTION_EDIT)
                     true
                 }
+
                 R.id.popup_delete -> {
                     listener.OnClick(subject.subjectId, ClickSourceSubject.OPTION_REMOVE)
                     true
                 }
+
                 else -> false
             }
         }

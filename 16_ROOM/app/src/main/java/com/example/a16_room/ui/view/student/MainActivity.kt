@@ -3,6 +3,7 @@ package com.example.a16_room.ui.view.student
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a16_room.ui.adapters.StudentAdapter
@@ -10,20 +11,29 @@ import com.example.a16_room.ui.listeners.OnStudentListener
 import com.example.a16_room.ui.viewmodels.StudentViewModel
 import com.example.a16_room.databinding.ActivityMainBinding
 import com.example.a16_room.ui.listeners.ClickSourceStudent
-import com.example.a16_room.ui.view.subject.ViewSubjectActivity
+import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: StudentViewModel
+    private lateinit var subjectViewModel: SubjectViewModel
     private val adapter = StudentAdapter()
-    private var id = 0
+    private var subjectId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
+        subjectViewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
+
         viewModel = ViewModelProvider(this)[StudentViewModel::class.java]
+
+        if (intent.hasExtra("subject_id")) {
+            subjectId = intent.getIntExtra("subject_id", -1)
+            Toast.makeText(this, subjectId.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         binding.recyclerStudents.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerStudents.adapter = adapter
@@ -45,18 +55,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonNewStudent.setOnClickListener {
-            startActivity(Intent(this, CreateStudentActivity::class.java))
+            val intent = Intent(this, CreateStudentActivity::class.java)
+            intent.putExtra("subject_id", subjectId)
+            startActivity(intent)
         }
 
         adapter.attachListener(listener)
 
         viewModel.getAll()
         observe()
-
-        binding.goToSubject.setOnClickListener {
-            startActivity(Intent(this, ViewSubjectActivity::class.java))
-        }
-
     }
 
     //Garante a atualização da lista quando volta da edição/criação

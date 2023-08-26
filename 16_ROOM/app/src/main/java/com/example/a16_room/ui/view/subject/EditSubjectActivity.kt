@@ -16,9 +16,8 @@ class EditSubjectActivity : AppCompatActivity() {
         binding = ActivityEditSubjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        Toast.makeText(this, subjectId.toString(), Toast.LENGTH_SHORT).show()
-
         viewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
+
         if (intent.hasExtra("subject_id")) {
             subjectId = intent.getIntExtra("subject_id", -1)
         }

@@ -5,6 +5,7 @@ interface OnSubjectListener {
 }
 
 enum class ClickSourceSubject {
+    OPTION_VIEW_STUDENTS,
     OPTION_EDIT,
     OPTION_REMOVE
 }

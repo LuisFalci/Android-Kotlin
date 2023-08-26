@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.a16_room.data.models.StudentModel
 import com.example.a16_room.data.models.SubjectModel
 import com.example.a16_room.data.repository.SubjectRepository
 
@@ -48,5 +49,8 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
             this.subjectId = id
         }
         changes.value = repository.delete(model).toLong()
+    }
+    fun getAllStudentsInSubject(subjectId: Int): List<StudentModel> {
+        return repository.getAllStudentsInSubject(subjectId)
     }
 }

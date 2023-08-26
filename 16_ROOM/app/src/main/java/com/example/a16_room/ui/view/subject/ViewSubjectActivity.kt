@@ -13,6 +13,7 @@ import com.example.a16_room.databinding.RowSubjectBinding
 import com.example.a16_room.ui.adapters.SubjectAdapter
 import com.example.a16_room.ui.listeners.ClickSourceSubject
 import com.example.a16_room.ui.listeners.OnSubjectListener
+import com.example.a16_room.ui.view.student.MainActivity
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
 class ViewSubjectActivity : AppCompatActivity() {
@@ -31,10 +32,14 @@ class ViewSubjectActivity : AppCompatActivity() {
         binding.recyclerSubjects.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerSubjects.adapter = adapter
 
-        val Intent = Intent(this, EditSubjectActivity::class.java)
         val listener = object : OnSubjectListener {
             override fun OnClick(subjectId: Int, source: ClickSourceSubject) {
                 when (source) {
+                    ClickSourceSubject.OPTION_VIEW_STUDENTS -> {
+                        val intent = Intent(this@ViewSubjectActivity, MainActivity::class.java)
+                        intent.putExtra("subject_id", subjectId)
+                        startActivity(intent)
+                    }
                     ClickSourceSubject.OPTION_EDIT -> {
                         val intent = Intent(this@ViewSubjectActivity, EditSubjectActivity::class.java)
                         intent.putExtra("subject_id", subjectId)
