@@ -1,5 +1,6 @@
 package com.example.a16_room.ui.view.subject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -8,6 +9,8 @@ import com.example.a16_room.databinding.ActivitySubjectViewBinding
 import com.example.a16_room.ui.adapters.SubjectAdapter
 import com.example.a16_room.ui.listeners.ClickSourceSubject
 import com.example.a16_room.ui.listeners.OnSubjectListener
+import com.example.a16_room.ui.view.student.CreateStudentActivity
+import com.example.a16_room.ui.view.student.EditStudentActivity
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
 class SubjectViewActivity : AppCompatActivity() {
@@ -26,10 +29,13 @@ class SubjectViewActivity : AppCompatActivity() {
         binding.recyclerSubjects.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerSubjects.adapter = adapter
 
+        val Intent = Intent(this, SubjectEditActivity::class.java)
         val listener = object : OnSubjectListener {
             override fun OnClick(id: Int, source: ClickSourceSubject) {
                 when (source) {
                     ClickSourceSubject.TEXT -> {
+                        Intent.putExtra("subject_id", id)
+                        startActivity(Intent)
                     }
                     ClickSourceSubject.BUTTON_REMOVE -> {
                         viewModel.delete(id)
@@ -37,11 +43,8 @@ class SubjectViewActivity : AppCompatActivity() {
                 }
             }
         }
-
-        binding.buttonInsert.setOnClickListener {
-            val name = binding.editName.text.toString()
-
-            viewModel.insert(name)
+        binding.buttonNewSubject.setOnClickListener {
+            startActivity(Intent(this, CreateSubjectActivity::class.java))
         }
 
         adapter.attachListener(listener)

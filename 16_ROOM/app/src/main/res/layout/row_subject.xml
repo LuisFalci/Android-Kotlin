@@ -16,14 +16,6 @@
         android:orientation="horizontal"
         android:padding="20dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/listImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            android:src="@drawable/ic_home" />
-
         <TextView
             android:id="@+id/text_subject"
             android:layout_width="wrap_content"
