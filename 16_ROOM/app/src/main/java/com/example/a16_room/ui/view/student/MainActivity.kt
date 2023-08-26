@@ -7,14 +7,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a16_room.ui.adapters.StudentAdapter
 import com.example.a16_room.ui.listeners.OnStudentListener
-import com.example.a16_room.ui.viewmodels.MainViewModel
+import com.example.a16_room.ui.viewmodels.StudentViewModel
 import com.example.a16_room.databinding.ActivityMainBinding
 import com.example.a16_room.ui.listeners.ClickSourceStudent
-import com.example.a16_room.ui.view.subject.SubjectViewActivity
+import com.example.a16_room.ui.view.subject.ViewSubjectActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: StudentViewModel
     private val adapter = StudentAdapter()
     private var id = 0
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this)[StudentViewModel::class.java]
 
         binding.recyclerStudents.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerStudents.adapter = adapter
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         observe()
 
         binding.goToSubject.setOnClickListener {
-            startActivity(Intent(this, SubjectViewActivity::class.java))
+            startActivity(Intent(this, ViewSubjectActivity::class.java))
         }
 
     }

@@ -16,10 +16,7 @@
             android:name=".ui.view.subject.CreateSubjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.subject.SubjectEditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.view.subject.SubjectViewActivity"
+            android:name=".ui.view.subject.EditSubjectActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.student.CreateStudentActivity"
@@ -29,6 +26,9 @@
             android:exported="false" />
         <activity
             android:name=".ui.view.student.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.subject.ViewSubjectActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

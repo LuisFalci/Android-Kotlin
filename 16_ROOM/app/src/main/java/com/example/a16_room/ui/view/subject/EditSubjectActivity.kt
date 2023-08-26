@@ -2,6 +2,7 @@ package com.example.a16_room.ui.view.subject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.a16_room.databinding.ActivityEditSubjectBinding
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
@@ -15,8 +16,9 @@ class EditSubjectActivity : AppCompatActivity() {
         binding = ActivityEditSubjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
+//        Toast.makeText(this, subjectId.toString(), Toast.LENGTH_SHORT).show()
 
+        viewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
         if (intent.hasExtra("subject_id")) {
             subjectId = intent.getIntExtra("subject_id", -1)
         }

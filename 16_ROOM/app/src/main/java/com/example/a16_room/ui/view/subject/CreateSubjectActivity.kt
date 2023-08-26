@@ -3,10 +3,7 @@ package com.example.a16_room.ui.view.subject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.example.a16_room.R
-import com.example.a16_room.databinding.ActivityCreateStudentBinding
 import com.example.a16_room.databinding.ActivityCreateSubjectBinding
-import com.example.a16_room.ui.viewmodels.MainViewModel
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
 class CreateSubjectActivity : AppCompatActivity() {

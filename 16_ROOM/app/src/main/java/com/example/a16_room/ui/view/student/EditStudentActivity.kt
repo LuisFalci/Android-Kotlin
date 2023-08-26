@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.a16_room.databinding.ActivityEditStudentBinding
-import com.example.a16_room.ui.viewmodels.MainViewModel
+import com.example.a16_room.ui.viewmodels.StudentViewModel
 
 class EditStudentActivity : AppCompatActivity() {
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: StudentViewModel
     private var studentId: Int = -1
     private lateinit var binding: ActivityEditStudentBinding
 
@@ -16,7 +16,7 @@ class EditStudentActivity : AppCompatActivity() {
         binding = ActivityEditStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this)[StudentViewModel::class.java]
 
         if (intent.hasExtra("student_id")) {
             studentId = intent.getIntExtra("student_id", -1)
