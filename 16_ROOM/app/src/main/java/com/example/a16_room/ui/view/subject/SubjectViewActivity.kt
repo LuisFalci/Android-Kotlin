@@ -1,6 +1,5 @@
-package com.example.a16_room.ui.view
+package com.example.a16_room.ui.view.subject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -31,9 +30,7 @@ class SubjectViewActivity : AppCompatActivity() {
             override fun OnClick(id: Int, source: ClickSourceSubject) {
                 when (source) {
                     ClickSourceSubject.TEXT -> {
-
                     }
-
                     ClickSourceSubject.BUTTON_REMOVE -> {
                         viewModel.delete(id)
                     }

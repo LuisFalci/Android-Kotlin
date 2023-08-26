@@ -13,16 +13,16 @@
         android:theme="@style/Theme.16_ROOM"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.SubjectViewActivity"
+            android:name=".ui.view.subject.SubjectViewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.CreateStudentActivity"
+            android:name=".ui.view.student.CreateStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.EditStudentActivity"
+            android:name=".ui.view.student.EditStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.MainActivity"
+            android:name=".ui.view.student.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

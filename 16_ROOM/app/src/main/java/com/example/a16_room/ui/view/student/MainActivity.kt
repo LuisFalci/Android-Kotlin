@@ -1,4 +1,4 @@
-package com.example.a16_room.ui.view
+package com.example.a16_room.ui.view.student
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import com.example.a16_room.ui.listeners.OnStudentListener
 import com.example.a16_room.ui.viewmodels.MainViewModel
 import com.example.a16_room.databinding.ActivityMainBinding
 import com.example.a16_room.ui.listeners.ClickSourceStudent
+import com.example.a16_room.ui.view.subject.SubjectViewActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

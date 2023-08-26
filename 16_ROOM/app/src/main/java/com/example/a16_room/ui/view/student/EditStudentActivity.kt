@@ -1,12 +1,9 @@
-package com.example.a16_room.ui.view
+package com.example.a16_room.ui.view.student
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.a16_room.R
 import com.example.a16_room.databinding.ActivityEditStudentBinding
-import com.example.a16_room.databinding.ActivityMainBinding
 import com.example.a16_room.ui.viewmodels.MainViewModel
 
 class EditStudentActivity : AppCompatActivity() {
