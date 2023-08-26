@@ -5,23 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a16_room.databinding.ActivitySubjectViewBinding
+import com.example.a16_room.databinding.ActivityViewSubjectBinding
 import com.example.a16_room.ui.adapters.SubjectAdapter
 import com.example.a16_room.ui.listeners.ClickSourceSubject
 import com.example.a16_room.ui.listeners.OnSubjectListener
-import com.example.a16_room.ui.view.student.CreateStudentActivity
-import com.example.a16_room.ui.view.student.EditStudentActivity
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
-class SubjectViewActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySubjectViewBinding
+class ViewSubjectActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityViewSubjectBinding
     private lateinit var viewModel: SubjectViewModel
     private val adapter = SubjectAdapter()
     private var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySubjectViewBinding.inflate(layoutInflater)
+        binding = ActivityViewSubjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
@@ -29,7 +27,7 @@ class SubjectViewActivity : AppCompatActivity() {
         binding.recyclerSubjects.layoutManager = LinearLayoutManager(applicationContext)
         binding.recyclerSubjects.adapter = adapter
 
-        val Intent = Intent(this, SubjectEditActivity::class.java)
+        val Intent = Intent(this, EditSubjectActivity::class.java)
         val listener = object : OnSubjectListener {
             override fun OnClick(id: Int, source: ClickSourceSubject) {
                 when (source) {

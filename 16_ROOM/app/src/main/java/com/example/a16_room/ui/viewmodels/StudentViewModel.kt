@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.a16_room.data.models.StudentModel
 import com.example.a16_room.data.repository.StudentRepository
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class StudentViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = StudentRepository(application.applicationContext)
 

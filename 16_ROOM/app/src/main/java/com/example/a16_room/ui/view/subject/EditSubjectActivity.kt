@@ -3,17 +3,16 @@ package com.example.a16_room.ui.view.subject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.example.a16_room.R
-import com.example.a16_room.databinding.ActivitySubjectEditBinding
+import com.example.a16_room.databinding.ActivityEditSubjectBinding
 import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
-class SubjectEditActivity : AppCompatActivity() {
+class EditSubjectActivity : AppCompatActivity() {
     private lateinit var viewModel: SubjectViewModel
     private var subjectId: Int = -1
-    private lateinit var binding: ActivitySubjectEditBinding
+    private lateinit var binding: ActivityEditSubjectBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySubjectEditBinding.inflate(layoutInflater)
+        binding = ActivityEditSubjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[SubjectViewModel::class.java]
