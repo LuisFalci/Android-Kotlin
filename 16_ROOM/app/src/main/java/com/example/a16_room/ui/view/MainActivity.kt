@@ -3,14 +3,13 @@ package com.example.a16_room.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a16_room.ui.adapters.StudentAdapter
 import com.example.a16_room.ui.listeners.OnStudentListener
 import com.example.a16_room.ui.viewmodels.MainViewModel
 import com.example.a16_room.databinding.ActivityMainBinding
-import com.example.a16_room.ui.listeners.ClickSource
+import com.example.a16_room.ui.listeners.ClickSourceStudent
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -30,14 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         val Intent = Intent(this, EditStudentActivity::class.java)
         val listener = object : OnStudentListener {
-            override fun OnClick(id: Int, source: ClickSource) {
+            override fun OnClick(id: Int, source: ClickSourceStudent) {
                 when (source) {
-                    ClickSource.TEXT -> {
+                    ClickSourceStudent.TEXT -> {
                         Intent.putExtra("student_id", id)
                         startActivity(Intent)
                     }
 
-                    ClickSource.BUTTON_REMOVE -> {
+                    ClickSourceStudent.BUTTON_REMOVE -> {
                         viewModel.delete(id)
                     }
                 }

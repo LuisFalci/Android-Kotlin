@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:text="Cadastrar" />
 
-<TextView
-    android:id="@+id/teste"
-    android:text="teste"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_subjects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent" />
 
 </LinearLayout>
