@@ -50,7 +50,4 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
         }
         changes.value = repository.delete(model).toLong()
     }
-    fun getAllStudentsInSubject(subjectId: Int): List<StudentModel> {
-        return repository.getAllStudentsInSubject(subjectId)
-    }
 }

@@ -22,9 +22,4 @@ interface SubjectDAO {
 
     @Query("SELECT * FROM Subject")
     fun getAll(): List<SubjectModel>
-
-    @Query("SELECT Student.* FROM Student " +
-            "INNER JOIN StudentSubjectCrossRef ON Student.id = StudentSubjectCrossRef.studentId " +
-            "WHERE StudentSubjectCrossRef.subjectId = :subjectId")
-    fun getAllStudentsInSubject(subjectId: Int): List<StudentModel>
 }
