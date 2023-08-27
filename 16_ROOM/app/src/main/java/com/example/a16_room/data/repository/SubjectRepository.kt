@@ -33,4 +33,8 @@ class SubjectRepository(context: Context) {
     fun getAll(): List<SubjectModel> {
         return subjectDAO.getAll()
     }
+    fun getAllStudentsInSubject(subjectId: Int): List<StudentModel> {
+        return subjectDAO.getAllStudentsInSubject(subjectId)
+    }
+
 }

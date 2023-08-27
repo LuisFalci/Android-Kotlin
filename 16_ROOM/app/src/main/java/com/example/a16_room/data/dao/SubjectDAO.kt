@@ -13,8 +13,13 @@ import com.example.a16_room.data.models.relations.StudentSubjectCrossRef
 interface SubjectDAO {
     @Insert
     fun insert(subject: SubjectModel): Long
+
+    @Insert
+    fun insertStudentSubjectCrossRef(studentSubjectCrossRef: StudentSubjectCrossRef)
+
     @Update
     fun update(subject: SubjectModel): Int
+
     @Delete
     fun delete(subject: SubjectModel): Int
 
@@ -24,6 +29,12 @@ interface SubjectDAO {
     @Query("SELECT * FROM Subject")
     fun getAll(): List<SubjectModel>
 
-    @Insert
-    fun insertStudentSubjectCrossRef(studentSubjectCrossRef: StudentSubjectCrossRef)
+    @Query(
+        "SELECT Student.* FROM Student " +
+                "INNER JOIN StudentSubjectCrossRef ON Student.id = StudentSubjectCrossRef.id " +
+                "WHERE StudentSubjectCrossRef.subjectId = :subjectId"
+    )
+    fun getAllStudentsInSubject(subjectId: Int): List<StudentModel>
+
+
 }
