@@ -29,8 +29,10 @@ class CreateStudentActivity : AppCompatActivity() {
         binding.buttonInsert.setOnClickListener {
             val name = binding.editName.text.toString()
             val registration = binding.editRegistration.text.toString()
-            val insertedStudentId = viewModel.insert(name, registration).toString()
-            subjectViewModel.insertStudentSubject(insertedStudentId.toInt(), subjectId)
+            viewModel.insert(name, registration)
+//            TODO tentar fazer o insertedStudentId funcionar. O id do student tá dando ruim converter para string e depois int de novo
+//            val insertedStudentId = viewModel.insert(name, registration).toString()
+//            subjectViewModel.insertStudentSubject(insertedStudentId.toInt(), subjectId)
             finish()
         }
     }
