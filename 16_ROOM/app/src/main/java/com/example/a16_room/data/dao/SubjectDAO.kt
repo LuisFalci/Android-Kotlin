@@ -7,6 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.example.a16_room.data.models.StudentModel
 import com.example.a16_room.data.models.SubjectModel
+import com.example.a16_room.data.models.relations.StudentSubjectCrossRef
 
 @Dao
 interface SubjectDAO {
@@ -22,4 +23,7 @@ interface SubjectDAO {
 
     @Query("SELECT * FROM Subject")
     fun getAll(): List<SubjectModel>
+
+    @Insert
+    fun insertStudentSubjectCrossRef(studentSubjectCrossRef: StudentSubjectCrossRef)
 }

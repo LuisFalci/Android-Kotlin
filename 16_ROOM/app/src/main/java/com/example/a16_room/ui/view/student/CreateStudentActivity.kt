@@ -6,9 +6,12 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.a16_room.databinding.ActivityCreateStudentBinding
 import com.example.a16_room.ui.viewmodels.StudentViewModel
+import com.example.a16_room.ui.viewmodels.SubjectViewModel
 
 class CreateStudentActivity : AppCompatActivity() {
     private lateinit var viewModel: StudentViewModel
+    private lateinit var subjectViewModel: SubjectViewModel
+
     lateinit var binding: ActivityCreateStudentBinding
     private var subjectId: Int = -1
 
@@ -21,14 +24,13 @@ class CreateStudentActivity : AppCompatActivity() {
 
         if (intent.hasExtra("subject_id")) {
             subjectId = intent.getIntExtra("subject_id", -1)
-            Toast.makeText(this, subjectId.toString(), Toast.LENGTH_SHORT).show()
         }
 
         binding.buttonInsert.setOnClickListener {
             val name = binding.editName.text.toString()
             val registration = binding.editRegistration.text.toString()
-
-            viewModel.insert(name, registration)
+            val insertedStudentId = viewModel.insert(name, registration).toString()
+            subjectViewModel.insertStudentSubject(insertedStudentId.toInt(), subjectId)
             finish()
         }
     }

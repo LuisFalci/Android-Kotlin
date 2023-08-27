@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.a16_room.data.models.StudentModel
 import com.example.a16_room.data.models.SubjectModel
 import com.example.a16_room.data.repository.SubjectRepository
 
@@ -34,6 +33,10 @@ class SubjectViewModel(application: Application) : AndroidViewModel(application)
             this.subjectName = subjectName
         }
         changes.value = repository.insert(model)
+    }
+
+    fun insertStudentSubject(studentId: Int, subjectId: Int) {
+        repository.insertStudentSubject(studentId, subjectId)
     }
 
     fun update(id: Int, subjectName: String) {
