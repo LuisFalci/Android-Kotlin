@@ -19,5 +19,4 @@ interface StudentDAO {
     fun get(id: Int): StudentModel
     @Query("SELECT * FROM Student")
     fun getAll(): List<StudentModel>
-
 }
